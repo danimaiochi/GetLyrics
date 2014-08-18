@@ -1,16 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using iTunesLib;
-using WMPLib;
 
 namespace GetLyrics
 {
@@ -36,8 +26,7 @@ namespace GetLyrics
 
             foreach (Sources.Sites src in sources)
             {
-                song.Lyrics = Sources.GetFrom(src, song);
-                showLyrics(src);
+                showLyrics(Sources.GetFrom(src, song));
             }
             
         }
@@ -52,13 +41,14 @@ namespace GetLyrics
             txtArtist.Text = song.Artist;
             txtSong.Text = song.Name;
         }
-        private void showLyrics(Sources.Sites src)
+        private void showLyrics(Source src)
         {
-            if (!string.IsNullOrEmpty(song.Lyrics))
+            if (!string.IsNullOrEmpty(src.Lyrics))
             {
-                song.Source = src.ToString(); 
-                LyricsForm lyricsForm = new LyricsForm(song);
-                lyricsForm.Show();
+                LyricsForm lyricsForm = new LyricsForm();
+                lyricsForm.song = song;
+                lyricsForm.source = src;
+                lyricsForm.init();
             }
         }
     }
@@ -66,8 +56,6 @@ namespace GetLyrics
     {
         public string Name { get; set; }
         public string Artist { get; set; }
-        public string Lyrics { get; set; }
-        public string Source { get; set; }
     }
     
 }

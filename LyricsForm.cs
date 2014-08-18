@@ -1,24 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GetLyrics
 {
     public partial class LyricsForm : Form
     {
-        public LyricsForm(Song song)
+        public LyricsForm()
         {
             InitializeComponent();
-            wbLyrics.DocumentText = song.Lyrics;
+        }
+
+        public void init()
+        {
+            wbLyrics.DocumentText = source.Lyrics;
             this.Text = string.Format("{0} - {1}", song.Artist, song.Name);
-            this.mainMenu.Items.Add(song.Source).Enabled = false;
+            this.mainMenu.Items.Add(source.Name).Click += LyricsForm_Click;
+            this.Show();
+        }
+        
+        public Song song { get; set; }
+        public Source source { get; set; }
+
+        void LyricsForm_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(this.source.URL);
         }
         public string Source { get; set; }
 

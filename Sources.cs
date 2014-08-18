@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
+﻿using System.Net;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GetLyrics
 {
@@ -17,7 +10,7 @@ namespace GetLyrics
             AZLyrics,
             Vagalume
         }
-        internal static string GetFrom(Sites src, Song song)
+        internal static Source GetFrom(Sites src, Song song)
         {
             if (src == Sites.AZLyrics)
                 return AZLyrics(song);
@@ -25,9 +18,9 @@ namespace GetLyrics
             if (src == Sites.Vagalume)
                 return Vagalume(song);
 
-            return "";
+            return new Source();
         }
-        internal static string AZLyrics(Song song)
+        internal static Source AZLyrics(Song song)
         {
             string url = string.Format("http://www.azlyrics.com/lyrics/{0}/{1}.html", Functions.Clean(song.Artist).Replace(" ", ""), Functions.Clean(song.Name).Replace(" ", ""));
             string lyrics = null;
@@ -39,9 +32,9 @@ namespace GetLyrics
             }
             catch { }
 
-            return lyrics;
+            return new Source() { Name = "AZLyrics", Lyrics = lyrics, URL = url };
         }
-        internal static string Vagalume(Song song)
+        internal static Source Vagalume(Song song)
         {
 
             string url = string.Format("http://www.vagalume.com.br/{0}/{1}.html", Functions.Clean(song.Artist).Replace(" ", "-"), Functions.Clean(song.Name).Replace(" ", "-"));
@@ -55,7 +48,13 @@ namespace GetLyrics
             }
             catch { }
 
-            return lyrics;
+            return new Source() { Name = "Vagalume", Lyrics = lyrics, URL = url };
         }
+    }
+    public class Source
+    {
+        public string Name;
+        public string Lyrics;
+        public string URL;
     }
 }
