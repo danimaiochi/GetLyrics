@@ -26,6 +26,7 @@ namespace GetLyrics
             
             iTunesApp itunes = new iTunesApp();
             WindowsMediaPlayer wmp = new WindowsMediaPlayer();
+
             if (itunes.CurrentTrack != null)
             {
                 song.Name = itunes.CurrentTrack.Name;

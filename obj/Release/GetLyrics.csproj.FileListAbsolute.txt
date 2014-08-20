@@ -1,13 +1,12 @@
+C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\bin\Release\GetLyrics.exe.config
+C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\bin\Release\GetLyrics.exe
+C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\bin\Release\GetLyrics.pdb
 C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\Interop.iTunesLib.dll
 C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\Interop.WMPLib.dll
 C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.csproj.ResolveComReference.cache
 C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.LyricsForm.resources
+C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.Main.resources
 C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.Properties.Resources.resources
 C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.csproj.GenerateResource.Cache
-C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\bin\Release\GetLyrics.exe.config
-C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\bin\Release\GetLyrics.exe
-C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\bin\Release\GetLyrics.pdb
 C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.exe
 C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.pdb
-C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.csprojResolveAssemblyReference.cache
-C:\Users\daniel.maiochi\Documents\Visual Studio 2012\Projects\GetLyrics\GetLyrics\obj\Release\GetLyrics.Main.resources
