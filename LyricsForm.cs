@@ -32,7 +32,7 @@ namespace GetLyrics
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFile.FileName = LyricsForm.ActiveForm.Text;
-            saveFile.Filter = "Texto (*.txt)|*.txt";
+            saveFile.Filter = "Text (*.txt)|*.txt";
             saveFile.ShowDialog();
             
         }

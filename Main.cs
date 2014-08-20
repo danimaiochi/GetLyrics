@@ -17,6 +17,7 @@ namespace GetLyrics
         private void btnGet_Click(object sender, EventArgs e)
         {
             List<Sources.Sites> sources = new List<Sources.Sites>();
+            bool lyricFound = false;
 
             sources.Add(Sources.Sites.Vagalume);
             sources.Add(Sources.Sites.AZLyrics);
@@ -26,8 +27,13 @@ namespace GetLyrics
 
             foreach (Sources.Sites src in sources)
             {
-                showLyrics(Sources.GetFrom(src, song));
+                lyricFound = showLyrics(Sources.GetFrom(src, song));
+
+                if (lyricFound)
+                    break;
             }
+            if (!lyricFound)
+                MessageBox.Show("No lyric found.");
             
         }
 
@@ -41,7 +47,7 @@ namespace GetLyrics
             txtArtist.Text = song.Artist;
             txtSong.Text = song.Name;
         }
-        private void showLyrics(Source src)
+        private bool showLyrics(Source src)
         {
             if (!string.IsNullOrEmpty(src.Lyrics))
             {
@@ -49,7 +55,9 @@ namespace GetLyrics
                 lyricsForm.song = song;
                 lyricsForm.source = src;
                 lyricsForm.init();
+                return true;
             }
+            return false;
         }
     }
     public class Song
