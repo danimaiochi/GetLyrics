@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace GetLyrics
@@ -38,7 +39,13 @@ namespace GetLyrics
 
         private void saveFileDialog2_FileOk(object sender, CancelEventArgs e)
         {
-            File.WriteAllText(saveFile.FileName, wbLyrics.DocumentText);
+            File.WriteAllText(saveFile.FileName, 
+                Regex.Replace(
+                    wbLyrics.DocumentText
+                    .Replace("<br>",Environment.NewLine)
+                    .Replace("<br/>", Environment.NewLine)
+                    .Replace("<br />", Environment.NewLine), 
+                    "<.*?>", string.Empty));
         }
 
 
