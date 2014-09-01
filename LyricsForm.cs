@@ -15,8 +15,8 @@ namespace GetLyrics
         public void init()
         {
             wbLyrics.DocumentText = source.Lyrics;
-            mainMenu.Items[1].Text = source.Name;
-            mainMenu.Items[1].Click += LyricsForm_Click;
+            mainMenu.Items.RemoveAt(1);
+            mainMenu.Items.Add(source.Name).Click += LyricsForm_Click;
         }
         
         public Song song { get; set; }
