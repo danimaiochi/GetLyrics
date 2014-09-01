@@ -32,6 +32,7 @@
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.sOURCEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             // mainMenu
             // 
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salvarToolStripMenuItem});
+            this.salvarToolStripMenuItem,
+            this.sOURCEToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Size = new System.Drawing.Size(537, 24);
@@ -65,16 +67,20 @@
             // 
             this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog2_FileOk);
             // 
+            // sOURCEToolStripMenuItem
+            // 
+            this.sOURCEToolStripMenuItem.Name = "sOURCEToolStripMenuItem";
+            this.sOURCEToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.sOURCEToolStripMenuItem.Text = "SOURCE";
+            // 
             // LyricsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 477);
             this.Controls.Add(this.wbLyrics);
             this.Controls.Add(this.mainMenu);
-            this.MainMenuStrip = this.mainMenu;
             this.Name = "LyricsForm";
-            this.Text = "LyricsForm";
+            this.Size = new System.Drawing.Size(537, 477);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -88,5 +94,6 @@
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFile;
+        private System.Windows.Forms.ToolStripMenuItem sOURCEToolStripMenuItem;
     }
 }

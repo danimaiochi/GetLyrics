@@ -8,7 +8,7 @@ namespace GetLyrics
     {
         internal static string Clean(string texto)
         {
-            return RemoverAcentos(texto.ToLower().Replace(@"\", "").Replace(".", "").Replace("'", ""));
+            return RemoverAcentos(texto.ToLower().Replace(@"\", "").Replace(".", "").Replace("'", "").Replace("!","").Replace("#",""));
         }
         internal static string RemoverAcentos(string texto)
         {

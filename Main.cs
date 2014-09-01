@@ -10,11 +10,10 @@ namespace GetLyrics
         public Main()
         {
             InitializeComponent();
-            song = Functions.getCurrentSong();
-            setSong();
+            refreshSong();
         }
 
-        private void btnGet_Click(object sender, EventArgs e)
+        private void getLyrics()
         {
             List<Sources.Sites> sources = new List<Sources.Sites>();
             bool lyricFound = false;
@@ -22,7 +21,7 @@ namespace GetLyrics
             sources.Add(Sources.Sites.Vagalume);
             sources.Add(Sources.Sites.AZLyrics);
 
-            song.Artist = txtArtist.Text ;
+            song.Artist = txtArtist.Text;
             song.Name = txtSong.Text;
 
             foreach (Sources.Sites src in sources)
@@ -37,27 +36,44 @@ namespace GetLyrics
             
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void refreshSong()
         {
             song = Functions.getCurrentSong();
             setSong();
+            getLyrics();
         }
         private void setSong()
         {
-            txtArtist.Text = song.Artist;
-            txtSong.Text = song.Name;
+            if (txtArtist.Text != string.Empty && txtSong.Text != string.Empty && (txtArtist.Text != song.Artist || txtSong.Text != song.Name))
+            {
+                if (MessageBox.Show("Refresh current song?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    txtArtist.Text = song.Artist;
+                    txtSong.Text = song.Name;
+                }
+            }
+            else
+            {
+                txtArtist.Text = song.Artist;
+                txtSong.Text = song.Name;
+            }
         }
         private bool showLyrics(Source src)
         {
             if (!string.IsNullOrEmpty(src.Lyrics))
             {
-                LyricsForm lyricsForm = new LyricsForm();
-                lyricsForm.song = song;
-                lyricsForm.source = src;
-                lyricsForm.init();
+                
+                this.lyricsForm.song = song;
+                this.lyricsForm.source = src;
+                this.lyricsForm.init();
                 return true;
             }
             return false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            refreshSong();
         }
     }
     public class Song

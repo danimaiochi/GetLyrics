@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace GetLyrics
 {
-    public partial class LyricsForm : Form
+    public partial class LyricsForm : UserControl
     {
         public LyricsForm()
         {
@@ -15,9 +15,8 @@ namespace GetLyrics
         public void init()
         {
             wbLyrics.DocumentText = source.Lyrics;
-            this.Text = string.Format("{0} - {1}", song.Artist, song.Name);
-            this.mainMenu.Items.Add(source.Name).Click += LyricsForm_Click;
-            this.Show();
+            mainMenu.Items[1].Text = source.Name;
+            mainMenu.Items[1].Click += LyricsForm_Click;
         }
         
         public Song song { get; set; }
@@ -31,7 +30,7 @@ namespace GetLyrics
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFile.FileName = LyricsForm.ActiveForm.Text;
+            saveFile.FileName = string.Format("{0} - {1}", song.Artist, song.Name) ;
             saveFile.Filter = "Text (*.txt)|*.txt";
             saveFile.ShowDialog();
             

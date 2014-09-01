@@ -38,11 +38,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions.cs" />
     <Compile Include="LyricsForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LyricsForm.Designer.cs">
       <DependentUpon>LyricsForm.cs</DependentUpon>
