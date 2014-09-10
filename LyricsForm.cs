@@ -16,8 +16,17 @@ namespace GetLyrics
         public void init()
         {
             wbLyrics.DocumentText = source.Lyrics;
-            mainMenu.Items.RemoveAt(1);
-            mainMenu.Items.Add(source.Name).Click += LyricsForm_Click;
+
+            //TODO: arrumar essa feiura
+            try
+            {
+                mainMenu.Items.RemoveAt(1);
+            }
+            catch { }
+            if (source.Name != string.Empty && source.URL != string.Empty)
+            {
+                mainMenu.Items.Add(source.Name).Click += LyricsForm_Click;
+            }
         }
         
         public Song song { get; set; }

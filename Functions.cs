@@ -24,20 +24,14 @@ namespace GetLyrics
         {
             Song song = new Song();
             
-            iTunesApp itunes = new iTunesApp();
-            WindowsMediaPlayer wmp = new WindowsMediaPlayer();
-
-            if (itunes.CurrentTrack != null)
+            if (Main.itunes.CurrentTrack != null)
             {
-                song.Name = itunes.CurrentTrack.Name;
-                song.Artist = itunes.CurrentTrack.Artist;
+                song.Name = Main.itunes.CurrentTrack.Name;
+                song.Artist = Main.itunes.CurrentTrack.Artist;
             }
-
-            if (wmp.currentMedia != null)
-            {
-                song.Name = wmp.currentMedia.name;
-            }
+            
             return song;
         }
+        
     }
 }
